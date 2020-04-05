@@ -17,8 +17,8 @@ one that has a pre-defined value.  Pressing the button will toast the value you 
             New-UDInputField -Id 'INPUT2' -Label "Test two begin" -Value "Yes it does" -FullWidth $false
       
             New-UDButton -Text "TEST" -OnClick {
-                $sliderValue = (Get-UDElement -id 'INPUT').Attributes.value
-                Show-UDToast -Message "You selected $sliderValue" -Position topLeft -Duration 4000
+                $FieldValue = (Get-UDElement -id 'INPUT').Attributes.value
+                Show-UDToast -Message "You selected $FieldValue" -Position topLeft -Duration 4000
             }
         }
 ```
