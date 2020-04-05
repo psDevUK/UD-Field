@@ -15,7 +15,7 @@ one that has a pre-defined value.  Pressing the button will toast the value you 
   New-UDLayout -Columns 2 -Content {
             New-UDInputField -Id 'INPUT' -Label "Does this really work?" -FullWidth $false
             New-UDInputField -Id 'INPUT2' -Label "Test two begin" -Value "Yes it does" -FullWidth $false
-            # New-UDRangeSlider -id 'SLIDERCOMPONENT' -min 50 -max 200 -Step 5 -Orientation "horizontal"
+      
             New-UDButton -Text "TEST" -OnClick {
                 $sliderValue = (Get-UDElement -id 'INPUT').Attributes.value
                 Show-UDToast -Message "You selected $sliderValue" -Position topLeft -Duration 4000
