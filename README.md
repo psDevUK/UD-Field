@@ -8,7 +8,22 @@ Editable Input Field based on https://github.com/Garphild/react-editable-input
 * -FullWidth can either be set to $true or $false default is $true
 * -Disabled will determine if the input field can be edited
 
-## Example
+## Examples
+This example shows this component being used within UDLayout to produce two input fields, one that you can type in and
+one that has a pre-defined value.  Pressing the button will toast the value you typed into the first input field. Hopefully this is enough to inspire you for use-cases of your own:-
+```
+  New-UDLayout -Columns 2 -Content {
+            New-UDInputField -Id 'INPUT' -Label "Does this really work?" -FullWidth $false
+            New-UDInputField -Id 'INPUT2' -Label "Test two begin" -Value "Yes it does" -FullWidth $false
+            # New-UDRangeSlider -id 'SLIDERCOMPONENT' -min 50 -max 200 -Step 5 -Orientation "horizontal"
+            New-UDButton -Text "TEST" -OnClick {
+                $sliderValue = (Get-UDElement -id 'INPUT').Attributes.value
+                Show-UDToast -Message "You selected $sliderValue" -Position topLeft -Duration 4000
+            }
+        }
+```
+
+
 This example uses the UDSelector component I built, in-conjunction with this component to dynamically display input fields of
 the selected process IDs.
 
